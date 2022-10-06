@@ -12,7 +12,7 @@ integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/j
 integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
 </head>
 <body>
-<h1 style="text-align:center; color:white; background-color: darkblue;">Shiva Vangari selects a vacation</h1>
+<h2 style="text-align:center; color:white; background-color: darkblue;">Shiva Vangari selects a vacation</h2>
 <div class="container">
 <form>
     <input type="checkbox" id="air" name="vacation" value="true">
@@ -84,11 +84,9 @@ function updateVacation()
 }
 </script>
 <div class="container">
-<ul class="pager">
-    <li class="previous">
-        <a href="discount.html">Discount Page</a>
-    </li>
-</ul>
-</div>
+    <div class="container">
+        <input type="button" class="btn btn-primary "onclick="location.href='discount.html';" value="Discount Page" />
+        <input type="button" class="btn btn-secondary" onclick="location.href='musician.html';" value="Musician Page" />
+    </div>
 </body>
 </html>
