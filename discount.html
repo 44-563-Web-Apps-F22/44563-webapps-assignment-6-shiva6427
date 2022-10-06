@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+    Discounts
+</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"   
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script> 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" 
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+    
+</head>
+<body>
+<h2 style="text-align:center; color:white; background-color: darkblue;">>Shiva Vangari computes Discounts</h2>
+<div class="container">
+<form>
+<div class="form-group">
+<label for="amount">Enter base amount </label>
+<input type ="number" id="amount" name="amount"  value=20> <br>
+</div>
+<div class="form-group">
+<label for="discount">Enter the discount percentage </label>
+<input type ="number" id="discounts" name="discounts" value= 10 autofocus> <br>
+</div>
+<input type="button" class="btn btn-success" onclick="discount()" value="Apply discount">
+</form>
+<p id="result">This text will be replaced </p>
+</div>
+<script>
+function discount(){
+console.log("Getting form values")
+amount = document.getElementById('amount').value
+discounts = document.getElementById('discounts').value
+let result="";
+result = "Discounted amounts for base"+" "+ amount +" "+"are:"
+let base=parseInt(discounts*(amount/100)).toFixed(1);
+let incr=parseInt(amount-base).toFixed(1);
+for(let i=1;i<6;i++){
+    result=result+" "+(parseInt(i*incr));
+}
+document.getElementById('result').innerHTML =result; 
+}
+</script>
+<div class="container">
+<form>
+<div class="form-group">
+<input type="radio" id="1" name="operation" onclick="chooseOp()" value="times">
+<label for="1">*</label></br>
+</div>
+<div class="form-group">
+<input type="radio" id="2" name="operation" onclick="chooseOp()" value="divide">
+<label for="2">/</label></br>
+</div>
+<input type="radio" id="3" name="operation" onclick="chooseOp()" value="exponent">
+<label for="3">**</label></br>
+</form>
+<p id="result1">This text will be replaced </p>
+</div>
+<script>
+    function chooseOp(){
+    let amount=document.getElementById("amount").value;
+        let discounts=document.getElementById("discounts").value;
+        let times=document.getElementById("1").checked;
+        let divide=document.getElementById("2").checked;
+        let exponent=document.getElementById("3").checked;
+        let results=0;
+        if(times)
+        {
+        results= amount*discounts;
+        }
+        else if(divide)
+        {
+        results=amount/discounts;
+        }
+        else if(exponent)
+        {
+        results=amount**discounts;
+        }
+        document.getElementById("result1").innerHTML=results
+    }
+</script>
+</body>
+</html> 

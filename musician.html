@@ -2,30 +2,42 @@
 <html>
 <head>
     <title>Musicians</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"   
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" 
+      integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+  
 </head>
 <body>
 
-<h2>Musician guess by Shiva Vangari</h2>
-
+<h2 style="text-align:center; color:white; background-color: darkblue;">Musician guess by Shiva Vangari</h2>
+<br>
 <form>
     <label for="form_name">Enter the secret musician name:</label>
     <input type ="password" id="form_name" name="form_name" min=10 max=50 step=2 value="John Lennon"> <br>
+    <br>
     <label for="form_guess">Guess the musician:</label>
     <input type ="text" id="form_guess" name="form_guess" autofocus> <br>
-    <input type="button" onclick="checkGuess()" value="Check the Guess">
+    <br>
+    <input type="button" class="btn btn-warning" onclick="checkGuess()" value="Check the Guess">
 </form>
-
-
+<br>
+<p id="result">This text will be replaced </p>
+<div class="container">
+    <img src="ant.png" id="image" class="img-fluid" onclick="swapImage()" width="100px" height="100px">
+</div>
 <script> 
 var correct = 0
 var wrong = 0
-
 function checkGuess(){
     console.log("Getting form values")
     Name = document.getElementById("form_name").value
     Guess = document.getElementById("form_guess").value
-    
-    
     out = document.getElementById("result")
     if(Name==Guess){
         correct = correct+1;
@@ -41,7 +53,32 @@ function checkGuess(){
     }
 }
 </script>
-
-
+<script>
+    function WrongAlert(){
+        alert("Sorry,game over!!!")
+        out.innerHTML = "Sorry, game over!!"
+    }
+    var useImage=1;
+    function swapImage()
+    {
+    switch(useImage)
+    {
+        case 1:
+                document.getElementById("image").src = "ant.png";
+                useImage=2;
+                break;
+        case 2:
+                document.getElementById("image").src = "grasshopper.png";
+                useImage=3;
+                break;
+        case 3:
+                document.getElementById("image").src = "netwing.png";
+                useImage=1;
+                break;
+        default:
+                document.getElementById("image").src = "ant.png";
+    }
+}
+</script>
 </body>
 </html> 
